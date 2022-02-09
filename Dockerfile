@@ -36,3 +36,10 @@ RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-31;google_apis;x86_64"
 
 CMD /opt/tools/entrypoint.sh built-in
+
+# Fix issue with 31.0.0 build-tools
+# https://stackoverflow.com/questions/68387270/android-studio-error-installed-build-tools-revision-31-0-0-is-corrupted
+RUN  cd $ANDROID_HOME/build-tools/31.0.0 && \
+    cp -R d8 dx && \
+    cd lib && \
+    cp d8.jar dx.jar
