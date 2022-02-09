@@ -66,4 +66,5 @@ echo "Accepting Licenses"
 android-accept-licenses.sh "sdkmanager --licenses --verbose"
 
 echo "fix for DX removed from SDK in favor of D8"
-mklink ${ANDROID_HOME}/build-tools/31.0.0/dx.bat ${ANDROID_HOME}/build-tools/31.0.0/d8.bat && mklink ${ANDROID_HOME}/build-tools/31.0.0/lib/dx.jar ${ANDROID_HOME}/build-tools/31.0.0/lib/d8.jar
+cp -rv ${ANDROID_HOME}/build-tools/31.0.0/d8 ${ANDROID_HOME}/build-tools/31.0.0/dx
+cp -rv ${ANDROID_HOME}/build-tools/31.0.0/lib/d8.jar ${ANDROID_HOME}/build-tools/31.0.0/lib/dx.jar
