@@ -36,3 +36,6 @@ RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-31;google_apis;x86_64"
 
 CMD /opt/tools/entrypoint.sh built-in
+
+COPY -rv ${ANDROID_HOME}/build-tools/31.0.0/d8 ${ANDROID_HOME}/build-tools/31.0.0/dx
+COPY -rv ${ANDROID_HOME}/build-tools/31.0.0/lib/d8.jar ${ANDROID_HOME}/build-tools/31.0.0/lib/dx.jar
